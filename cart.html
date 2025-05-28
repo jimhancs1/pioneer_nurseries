@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pioneer Seedlings - Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header / Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold hover:text-green-700 transition">
+      🌱 Pioneer Seedlings
+    </a>
+      <div class="space-x-6 text-sm md:text-base">
+        <a href="index.html" class="hover:text-green-600">Home</a>
+        <a href="shop.html" class="hover:text-green-600">Shop</a>
+        <a href="cart.html" class="text-green-700 font-semibold underline">
+          Cart (<span id="cart-count">0</span>)</a>
+        <a href="contact.html" class="hover:text-green-600 transition">Contact</a>
+        <a href="about.html" class="hover:text-green-600 transition">About Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto py-10 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Your Cart</h2>
+    
+    <section id="cart-items" class="space-y-4"></section>
+
+    <section id="cart-total" class="text-right mt-6"></section>
+
+    <!-- Checkout Form (Hidden initially) -->
+    <section id="checkout-form" class="max-w-xl mx-auto mt-10 p-6 bg-white shadow rounded-lg hidden">
+      <h3 class="text-2xl font-bold mb-4">Checkout Details</h3>
+      <form onsubmit="submitCheckout(event)" class="space-y-4">
+        <div>
+          <label class="block font-medium">Full Name</label>
+          <input type="text" id="checkout-name" required class="w-full border rounded px-3 py-2 mt-1" />
+        </div>
+        <div>
+          <label class="block font-medium">Phone Number</label>
+          <input type="tel" id="checkout-phone" required class="w-full border rounded px-3 py-2 mt-1" />
+        </div>
+        <div>
+          <label class="block font-medium">Delivery Address</label>
+          <textarea id="checkout-address" required class="w-full border rounded px-3 py-2 mt-1"></textarea>
+        </div>
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded">
+          Submit Order
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6">
+    © 2025 Sleek E-Shop. All rights reserved.
+  </footer>
+
+  <script>
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `
+          <p class="text-center text-gray-600">🛒 Your cart is empty.</p>
+        `;
+        cartTotal.innerHTML = '';
+        return;
+      }
+
+      cartItems.innerHTML = cart.map(item => `
+        <div class="flex flex-col md:flex-row items-center justify-between bg-white p-4 rounded-lg shadow">
+          <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded mb-4 md:mb-0" />
+          <div class="flex-1 md:mx-4 text-center md:text-left">
+            <h3 class="text-lg font-semibold">${item.name}</h3>
+            <p class="text-gray-600">Ksh ${item.price.toFixed(2)}</p>
+          </div>
+          <div class="flex items-center gap-2 mt-2 md:mt-0">
+            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})" class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})" class="bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded">+</button>
+            <button onclick="removeFromCart(${item.id})" class="text-red-600 hover:text-red-800 ml-2">Remove</button>
+          </div>
+        </div>
+      `).join('');
+
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      cartTotal.innerHTML = `
+        <p class="text-xl font-semibold">Total: Ksh ${total.toFixed(2)}</p>
+        <button 
+          onclick="showCheckoutForm()" 
+          class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-5 rounded-lg transition"
+        >
+          Proceed to Checkout
+        </button>
+      `;
+    }
+
+    function updateQuantity(id, quantity) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      if (quantity < 1) {
+        removeFromCart(id);
+        return;
+      }
+      cart = cart.map(item => item.id === id ? { ...item, quantity } : item);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    function removeFromCart(id) {
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart = cart.filter(item => item.id !== id);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    function showCheckoutForm() {
+      const formSection = document.getElementById('checkout-form');
+      formSection.classList.remove('hidden');
+      formSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitCheckout(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('checkout-name').value.trim();
+      const phone = document.getElementById('checkout-phone').value.trim();
+      const address = document.getElementById('checkout-address').value.trim();
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+      if (!name || !phone || !address || cart.length === 0) {
+        alert("Please fill all fields and ensure cart is not empty.");
+        return;
+      }
+
+      const orderInfo = { name, phone, address, cart };
+      localStorage.setItem('orderInfo', JSON.stringify(orderInfo));
+      localStorage.removeItem('cart');
+      window.location.href = "thank-you.html";
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+      updateCartCount();
+    });
+  </script>
+</body>
+</html>

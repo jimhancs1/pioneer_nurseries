@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You - Pioneer Seedlings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 text-gray-800 flex flex-col items-center justify-center min-h-screen px-4 py-12">
+
+  <div class="bg-white p-10 rounded-lg shadow-lg max-w-lg text-center">
+    <h1 class="text-4xl font-extrabold text-green-600 mb-6">🎉 Thank You!</h1>
+    <p class="text-lg mb-6 text-gray-700">
+      We appreciate your visit. Would you like to give us some feedback to help us improve?
+    </p>
+
+    <div id="order-message" class="mb-6 text-gray-700 text-left"></div>
+
+    <div id="action-buttons" class="space-y-4">
+      <a href="feedback.html" class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition focus:outline-none focus:ring-4 focus:ring-green-500">
+        Give Feedback
+      </a>
+      <a href="index.html" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold transition focus:outline-none focus:ring-4 focus:ring-yellow-400">
+         Back to Home
+     </a>
+    </div>
+  </div>
+
+  <script>
+    // Show order info from localStorage or redirect if none
+    const order = JSON.parse(localStorage.getItem("orderInfo"));
+    if (order) {
+      document.getElementById("order-message").innerHTML = `
+        Thank you, <strong>${order.name}</strong>!<br />
+        Your order will be delivered to: <strong>${order.address}</strong>.<br />
+        We will contact you at <strong>${order.phone}</strong>.
+      `;
+      localStorage.removeItem("orderInfo");
+    } else {
+      window.location.href = "cart.html";
+    }
+  </script>
+
+</body>
+</html>
