@@ -11,7 +11,7 @@
   <div class="bg-white p-10 rounded-lg shadow-lg max-w-lg w-full">
     <h1 class="text-4xl font-extrabold text-green-600 mb-6 text-center">We'd Love to Hear From You!</h1>
     <p class="mb-8 text-center text-gray-700">
-      Your feedback helps us grow and serve you better. Please fill out the form below.
+      Your feedback helps us grow and serve you better. Please fill out the form below, and we'll contact you if nnecessary.
     </p>
 
     <form id="feedbackForm" class="space-y-6" novalidate>
@@ -137,6 +137,9 @@
       // If all valid, show success message
       document.getElementById('feedbackForm').classList.add('hidden');
       document.getElementById('afterSubmit').classList.remove('hidden');
+
+      // Change heading text
+      document.querySelector('h1').textContent = 'We Love Hearing From You';
     });
   </script>
 
