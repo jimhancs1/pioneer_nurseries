@@ -14,6 +14,53 @@
     .animate-fade-in {
       animation: fade-in 1.2s ease-out both;
     }
+
+    /* Slide left animation */
+    @keyframes slideLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-left {
+      animation: slideLeft 0.8s ease forwards;
+    }
+
+    /* Landscape mode adjustments for small devices (like Android phones in horizontal) */
+    @media (max-width: 767px) and (orientation: landscape) {
+      /* Reduce hero section height */
+      section.relative.h-[90vh] {
+        height: 60vh !important;
+      }
+      /* Slightly smaller hero text */
+      section.relative h2 {
+        font-size: 1.75rem !important; /* ~text-3xl */
+      }
+      section.relative p {
+        font-size: 0.875rem !important; /* ~text-sm */
+      }
+      /* Reduce padding and gap in Why Choose Us grid for small landscape */
+      .grid.md\:grid-cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* switch to 2 columns */
+        gap: 1rem !important; /* reduce gap */
+      }
+      /* Make the third item span full width for better stacking */
+      .grid.md\:grid-cols-3 > div:nth-child(3) {
+        grid-column: span 2 / span 2 !important;
+      }
+      /* Reduce font sizes for Why Choose Us titles */
+      .grid.md\:grid-cols-3 h4 {
+        font-size: 1.125rem !important; /* ~text-lg */
+      }
+      /* Adjust testimonial font size */
+      blockquote {
+        font-size: 0.875rem !important; /* ~text-sm */
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -44,44 +91,26 @@
     </div>
   </section>
 
-<!-- Why Choose Us -->
-<section class="py-16 bg-white">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h3 class="text-3xl font-bold mb-8">Why Choose Pioneer Seedlings?</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.2s;">
-        <h4 class="text-xl font-semibold mb-2">🌿 Premium Quality</h4>
-        <p>We nurture our seedlings with care and expertise, ensuring healthy and strong growth from the start.</p>
-      </div>
-      <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.4s;">
-        <h4 class="text-xl font-semibold mb-2">🚚 Reliable Delivery</h4>
-        <p>Your seedlings arrive fresh and ready to plant—carefully packed and delivered across the region.</p>
-      </div>
-      <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.6s;">
-        <h4 class="text-xl font-semibold mb-2">👩‍🌾 Trusted by Gardeners</h4>
-        <p>Home gardeners and farmers alike trust Pioneer for consistent results and professional service.</p>
+  <!-- Why Choose Us -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-bold mb-8">Why Choose Pioneer Seedlings?</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.2s;">
+          <h4 class="text-xl font-semibold mb-2">🌿 Premium Quality</h4>
+          <p>We nurture our seedlings with care and expertise, ensuring healthy and strong growth from the start.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.4s;">
+          <h4 class="text-xl font-semibold mb-2">🚚 Reliable Delivery</h4>
+          <p>Your seedlings arrive fresh and ready to plant—carefully packed and delivered across the region.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg shadow animate-fade-in" style="animation-delay: 0.6s;">
+          <h4 class="text-xl font-semibold mb-2">👩‍🌾 Trusted by Gardeners</h4>
+          <p>Home gardeners and farmers alike trust Pioneer for consistent results and professional service.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<style>
-  @keyframes slideLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-slide-left {
-    animation: slideLeft 0.8s ease forwards;
-  }
-</style>
-
+  </section>
 
   <!-- Testimonial Section with Slider -->
   <section class="bg-gray-50 py-16">
