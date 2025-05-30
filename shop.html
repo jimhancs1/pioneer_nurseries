@@ -7,19 +7,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
-
-    .fade-in-up {
-      animation: fadeInUp 1s ease forwards;
-    }
+    .fade-in-up { animation: fadeInUp 1s ease forwards; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
@@ -27,9 +18,7 @@
   <!-- Navigation -->
   <nav class="bg-white shadow p-4 sticky top-0 z-50">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold hover:text-green-700 transition">
-        🌱 Pioneer Seedlings
-      </a>
+      <a href="index.html" class="text-2xl font-bold hover:text-green-700 transition">🌱 Pioneer Seedlings</a>
       <div class="space-x-6">
         <a href="index.html" class="hover:text-green-600 transition">Home</a>
         <a href="shop.html" class="text-green-700 font-semibold underline">Shop</a>
@@ -49,7 +38,7 @@
         Welcome to Pioneer Seedlings!
       </h2>
       <p class="text-lg text-green-900 mb-6 fade-in-up" style="animation-delay: 0.3s;">
-         Discover a wide selection of high-quality fruit, vegetable, herb, and tree seedlings nurtured to grow strong and healthy in your garden. Whether you're a seasoned gardener or just starting out, we provide premium seedlings and expert advice to help your plants thrive.
+        Discover a wide selection of high-quality fruit, vegetable, herb, and tree seedlings nurtured to grow strong and healthy in your garden.
       </p>
     </div>
   </section>
@@ -58,19 +47,19 @@
   <main class="container mx-auto py-10 px-4">
     <h2 class="text-3xl font-bold text-center mb-10">Our Products</h2>
 
-    <!-- Enhanced Category Filter -->
+    <!-- Category Filter -->
     <div class="flex flex-wrap justify-center gap-4 mb-10">
-      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400" data-category="all">All</button>
-      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400" data-category="fruit">Fruit</button>
-      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400" data-category="vegetable">Vegetable</button>
-      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400" data-category="herb">Herb</button>
-      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-400" data-category="tree">Tree</button>
+      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all" data-category="all">All</button>
+      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all" data-category="fruit">Fruit</button>
+      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all" data-category="vegetable">Vegetable</button>
+      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all" data-category="herb">Herb</button>
+      <button class="filter-btn bg-green-500 hover:bg-green-600 text-white font-medium px-5 py-2.5 rounded-full shadow transition-all" data-category="tree">Tree</button>
     </div>
 
     <!-- Product Grid -->
     <section id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></section>
 
-    <!-- View Cart Button -->
+    <!-- View Cart -->
     <div class="text-center mt-12">
       <a href="cart.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition">
         🛒 View Cart & Checkout
@@ -105,28 +94,31 @@
       { id: 17, name: "Moringa", price: 79.99, image: "thumbnails/Moringa.png", category: "Tree" },
       { id: 18, name: "Cucumber", price: 34.99, image: "thumbnails/Cucumber.png", category: "Vegetable" },
       { id: 19, name: "Wambugu Apple", price: 64.99, image: "thumbnails/Wambugu Apple.png", category: "Fruit" },
-      { id: 20, name: "Dragon Fruit", price: 89.99, image: "thumbnails/Dragon Fruit.png", category: "Fruit" },
+      { id: 20, name: "Dragon Fruit", price: 89.99, image: "thumbnails/Dragon Fruit.png", category: "Fruit" }
     ];
 
     function renderProducts(category = "all") {
       const grid = document.getElementById("product-grid");
       grid.innerHTML = products
         .filter(p => category === "all" || p.category.toLowerCase() === category.toLowerCase())
-        .map(p => {
-          return `
-            <div class="bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col">
-              <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-t-lg">
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="text-lg font-semibold mb-1">${p.name}</h3>
-                <p class="text-green-700 font-bold">KSh ${p.price.toFixed(2)}</p>
-                <p class="text-sm text-gray-500 mb-3">${p.category}</p>
-                <button onclick="addToCart(${p.id})" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded mt-auto">
+        .map(p => `
+          <div class="bg-white rounded-lg shadow hover:shadow-lg transition flex flex-col">
+            <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="p-4 flex flex-col flex-grow">
+              <h3 class="text-lg font-semibold mb-1">${p.name}</h3>
+              <p class="text-green-700 font-bold">KSh ${p.price.toFixed(2)}</p>
+              <p class="text-sm text-gray-500 mb-3">${p.category}</p>
+              <div class="mt-auto space-y-2">
+                <button onclick="addToCart(${p.id})" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded">
                   Add to Cart
                 </button>
+                <a href="more-details.html?id=${p.id}" class="w-full block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 rounded">
+                  More Details
+                </a>
               </div>
-            </div>`;
-        })
-        .join("");
+            </div>
+          </div>
+        `).join("");
     }
 
     function addToCart(productId) {
