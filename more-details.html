@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - Pioneer Seedlings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { animation: fadeInUp 1s ease forwards; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow p-4 sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold hover:text-green-700 transition">🌱 Pioneer Seedlings</a>
+      <div class="space-x-6">
+        <a href="index.html" class="hover:text-green-600 transition">Home</a>
+        <a href="shop.html" class="text-green-700 font-semibold underline">Shop</a>
+        <a href="cart.html" class="hover:text-green-600 transition">
+          Cart (<span id="cart-count">0</span>)
+        </a>
+        <a href="contact.html" class="hover:text-green-600 transition">Contact</a>
+        <a href="about.html" class="hover:text-green-600 transition">About Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-10 px-4">
+    <div id="product-details" class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 fade-in-up">
+      <!-- Product details will be injected here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12 py-4 text-center text-sm text-gray-500">
+    © 2025 Pioneer Seedlings. All rights reserved.
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: "Grafted Mango", price: 59.99, image: "thumbnails/mango.png", category: "Fruit", description: "Enjoy the rich, juicy flavor of grafted mangoes that mature faster and yield more fruit. These are perfect for home orchards and tropical-themed gardens." },
+      { id: 2, name: "Hass Avocado", price: 129.99, image: "thumbnails/hass-avocado.png", category: "Fruit", description: "A top-tier avocado variety prized for its creamy texture and nutty flavor. Ideal for guacamole and healthy diets." },
+      { id: 3, name: "Fuerete Avocado", price: 89.99, image: "thumbnails/Fuerete Avocado.png", category: "Fruit", description: "Fuerte avocados offer smooth, pear-shaped fruit with buttery taste. A reliable and delicious backyard fruit tree." },
+      { id: 4, name: "Pixie Orange", price: 79.99, image: "thumbnails/pixie orange.png", category: "Fruit", description: "Pixie oranges are seedless, easy-to-peel, and bursting with sweetness—perfect for snacking or juicing." },
+      { id: 5, name: "Valencia Orange", price: 49.99, image: "thumbnails/Valencia Orange.png", category: "Fruit", description: "A popular juicing orange known for its high juice content and bright flavor." },
+      { id: 6, name: "Macademia", price: 39.99, image: "thumbnails/Macademia.png", category: "Tree", description: "Grow your own rich, buttery macadamia nuts. A beautiful evergreen tree with delicious benefits." },
+      { id: 7, name: "Tree Tomato", price: 29.99, image: "thumbnails/Tree Tomato.png", category: "Fruit", description: "Also known as Tamarillo, this fruit is tangy and sweet, perfect for sauces or fresh eating." },
+      { id: 8, name: "Pawpaw", price: 45.99, image: "thumbnails/Pawpaw.png", category: "Fruit", description: "Tropical-tasting fruits with custard-like texture and a mix of banana and mango flavors." },
+      { id: 9, name: "Tomato", price: 34.99, image: "thumbnails/Tomato.png", category: "Vegetable", description: "A must-have for every garden. These tomatoes are juicy, flavorful, and ideal for fresh or cooked dishes." },
+      { id: 10, name: "Kale", price: 49.99, image: "thumbnails/Kale.png", category: "Vegetable", description: "Nutrient-packed leafy green that's perfect for salads, smoothies, and cooking." },
+      { id: 11, name: "Spinach", price: 24.99, image: "thumbnails/Spinach.png", category: "Vegetable", description: "Fast-growing leafy vegetable ideal for salads, sautés, and smoothies." },
+      { id: 12, name: "Bell Peper", price: 69.99, image: "thumbnails/Bell Peper.png", category: "Vegetable", description: "Vibrant and crunchy bell peppers great for grilling, salads, or stir-fry." },
+      { id: 13, name: "Rosemary", price: 19.99, image: "thumbnails/Rosemary.png", category: "Herb", description: "Aromatic and evergreen herb, perfect for seasoning meats and vegetables." },
+      { id: 14, name: "Basil", price: 99.99, image: "thumbnails/Basil.png", category: "Herb", description: "Fragrant herb essential in Italian and Asian cuisines." },
+      { id: 15, name: "Lemongrass", price: 24.99, image: "thumbnails/Lemongrass.png", category: "Herb", description: "Zesty and aromatic grass used in teas and Asian dishes." },
+      { id: 16, name: "Mint", price: 29.99, image: "thumbnails/Mint.png", category: "Herb", description: "Cool and refreshing herb ideal for teas, desserts, and cocktails." },
+      { id: 17, name: "Moringa", price: 79.99, image: "thumbnails/Moringa.png", category: "Tree", description: "Known as the 'miracle tree', moringa is packed with nutrients and medicinal properties." },
+      { id: 18, name: "Cucumber", price: 34.99, image: "thumbnails/Cucumber.png", category: "Vegetable", description: "Cool, crisp cucumbers perfect for salads, pickling, and hydration." },
+      { id: 19, name: "Wambugu Apple", price: 64.99, image: "thumbnails/Wambugu Apple.png", category: "Fruit", description: "A hardy and productive apple tree developed for warm climates." },
+      { id: 20, name: "Dragon Fruit", price: 89.99, image: "thumbnails/Dragon Fruit.png", category: "Fruit", description: "Exotic cactus fruit with a mildly sweet flavor and striking appearance." },
+    ];
+
+    const queryParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(queryParams.get("id"));
+    const product = products.find(p => p.id === productId);
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById("cart-count").textContent = total;
+    }
+
+    if (product) {
+      document.getElementById("product-details").innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-contain mb-6 rounded-lg">
+        <h2 class="text-3xl font-bold text-green-700 mb-2">${product.name}</h2>
+        <p class="text-xl text-green-800 font-semibold mb-1">KSh ${product.price.toFixed(2)}</p>
+        <p class="text-gray-600 mb-4"><strong>Category:</strong> ${product.category}</p>
+        <p class="text-gray-700 mb-6">${product.description}</p>
+        <a href="shop.html" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded shadow transition">← Back to Shop</a>
+      `;
+    } else {
+      document.getElementById("product-details").innerHTML = "<p class='text-center text-red-600'>Product not found.</p>";
+    }
+
+    window.addEventListener("load", updateCartCount);
+  </script>
+</body>
+</html>
