@@ -1,0 +1,183 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training – Pioneer Seedlings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold hover:text-green-700 transition">
+        🌱 Pioneer Seedlings
+      </a>
+      <div class="space-x-6 text-sm md:text-base">
+        <a href="index.html" class="hover:text-green-600">Home</a>
+        <a href="shop.html" class="hover:text-green-600">Shop</a>
+        <a href="training.html" class="text-green-700 font-semibold underline">Training</a>
+        <a href="contact.html" class="hover:text-green-600">Contact</a>
+        <a href="about.html" class="hover:text-green-600">About Us</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-green-100 py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Training Programs</h1>
+      <p class="text-lg text-gray-700">Grow your skills with hands-on agricultural training tailored for beginners and pros alike.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Choose Your Training</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+
+        <!-- Nursery Management -->
+        <div class="bg-gray-100 p-8 rounded-xl shadow-lg animate-fade-in">
+          <h3 class="text-xl font-semibold text-green-700 mb-2">🌿 Nursery Management</h3>
+          <p class="text-gray-600 mb-4">Duration: 3 Days<br>Location: Our Farm, Embu<br>Time: 9:00 AM - 4:00 PM</p>
+          <p class="text-gray-600 mb-4">Learn seed propagation, shading, irrigation setup, pest control, and more. Includes field practice and expert Q&A.</p>
+          <ul class="text-left text-sm text-gray-600 mb-4">
+            <li>✅ Hands-on field work</li>
+            <li>✅ Materials provided</li>
+            <li>✅ Certificate on completion</li>
+            <li>✅ Bring notebook and boots</li>
+          </ul>
+          <div class="text-3xl font-bold text-gray-800 mb-4">KES 6,500</div>
+          <button onclick="selectTier('Nursery Management', 'KES 6,500')" class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-full transition">Enroll</button>
+        </div>
+
+        <!-- Fruit Farming -->
+        <div class="bg-green-50 border-2 border-green-400 p-8 rounded-xl shadow-lg animate-fade-in" style="animation-delay: 0.2s;">
+          <h3 class="text-xl font-semibold text-green-800 mb-2">🍎 Fruit Farming</h3>
+          <p class="text-gray-700 mb-4">Duration: 5 Days <br> Location: Our Orchard, Kirinyaga<br>Time: 8:30 AM - 5:00 PM</p>
+          <p class="text-gray-700 mb-4">Covers soil prep, planting, mulching, organic pest control, irrigation, harvesting, and marketing techniques for various fruit crops.</p>
+          <ul class="text-left text-sm text-gray-700 mb-4">
+            <li>✅ Real field exposure</li>
+            <li>✅ Sample fruits included</li>
+            <li>✅ Certificate of participation</li>
+            <li>✅ Wear sun protection and carry water</li>
+          </ul>
+          <div class="text-3xl font-bold text-gray-800 mb-4">KES 9,000</div>
+          <button onclick="selectTier('Fruit Farming', 'KES 9,000')" class="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-full transition">Enroll</button>
+        </div>
+
+        <!-- Grafting Techniques -->
+        <div class="bg-gray-100 p-8 rounded-xl shadow-lg animate-fade-in" style="animation-delay: 0.4s;">
+          <h3 class="text-xl font-semibold text-green-700 mb-2">✂️ Grafting Techniques</h3>
+          <p class="text-gray-600 mb-4">Duration: 2 Days <br>Location: Demo Greenhouse, Meru<br>Time: 10:00 AM - 3:00 PM</p>
+          <p class="text-gray-600 mb-4">Learn budding, cleft grafting, whip-and-tongue, aftercare, and success troubleshooting from experienced horticulturists.</p>
+          <ul class="text-left text-sm text-gray-600 mb-4">
+            <li>✅ Practice with real scions</li>
+            <li>✅ Take-home grafted plants</li>
+            <li>✅ Certificate included</li>
+            <li>✅ Bring gloves and cutters</li>
+          </ul>
+          <div class="text-3xl font-bold text-gray-800 mb-4">KES 7,500</div>
+          <button onclick="selectTier('Grafting Techniques', 'KES 7,500')" class="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-full transition">Enroll</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Enrollment Form -->
+  <section id="enroll-section" class="max-w-xl mx-auto px-4 py-16 bg-white shadow rounded-lg hidden">
+    <h2 class="text-2xl font-bold mb-6 text-green-700 text-center">Enrollment Form</h2>
+    <form id="enrollForm" onsubmit="handleSubmit(event)" class="space-y-4">
+      <div>
+        <label class="block font-semibold mb-1">Full Name</label>
+        <input type="text" name="name" required class="w-full border rounded px-4 py-2" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Email</label>
+        <input type="email" name="email" required class="w-full border rounded px-4 py-2" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Program</label>
+        <input type="text" id="selectedProgram" name="program" readonly class="w-full border bg-gray-100 rounded px-4 py-2" />
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Price</label>
+        <input type="text" id="selectedPrice" name="price" readonly class="w-full border bg-gray-100 rounded px-4 py-2" />
+      </div>
+      <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded w-full">Submit Enrollment</button>
+    </form>
+  </section>
+
+  <!-- Thank You Message -->
+  <section id="thankYou" class="max-w-2xl mx-auto px-4 py-16 text-center hidden">
+    <h2 class="text-3xl font-bold text-green-700 mb-4">Thank You, <span id="thankName"></span>!</h2>
+    <p class="text-gray-700 mb-6">Your training enrollment is confirmed. Please find your receipt below.</p>
+    <div class="text-left bg-gray-100 p-6 rounded-lg shadow mb-6">
+      <p><strong>Name:</strong> <span id="receiptName"></span></p>
+      <p><strong>Email:</strong> <span id="receiptEmail"></span></p>
+      <p><strong>Program:</strong> <span id="receiptProgram"></span></p>
+      <p><strong>Price:</strong> <span id="receiptPrice"></span></p>
+    </div>
+    <button onclick="window.print()" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded mb-2">🖨️ Print Receipt</button>
+    <button onclick="downloadReceipt()" class="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded">⬇️ Download Receipt</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-8 border-t mt-10">
+    © 2025 Pioneer Seedlings. All rights reserved.
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function selectTier(program, price) {
+      const enrollSection = document.getElementById('enroll-section');
+      document.getElementById('selectedProgram').value = program;
+      document.getElementById('selectedPrice').value = price;
+
+      enrollSection.classList.remove('hidden');
+      enrollSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const program = form.program.value;
+      const price = form.price.value;
+
+      if (!name || !email) {
+        alert("Please fill all required fields.");
+        return;
+      }
+
+      document.getElementById('thankName').textContent = name;
+      document.getElementById('receiptName').textContent = name;
+      document.getElementById('receiptEmail').textContent = email;
+      document.getElementById('receiptProgram').textContent = program;
+      document.getElementById('receiptPrice').textContent = price;
+
+      document.getElementById('enroll-section').classList.add('hidden');
+      document.getElementById('thankYou').classList.remove('hidden');
+      document.getElementById('thankYou').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function downloadReceipt() {
+      const name = document.getElementById('receiptName').textContent;
+      const email = document.getElementById('receiptEmail').textContent;
+      const program = document.getElementById('receiptProgram').textContent;
+      const price = document.getElementById('receiptPrice').textContent;
+
+      const receiptText = `Training Enrollment Receipt\n\nName: ${name}\nEmail: ${email}\nProgram: ${program}\nPrice: ${price}`;
+      const blob = new Blob([receiptText], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${name.replace(/\s+/g, '_')}_receipt.txt`;
+      link.click();
+    }
+  </script>
+</body>
+</html>
