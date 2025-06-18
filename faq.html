@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pioneer Seedlings - Frequently Asked Questions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Find quick answers to common questions about ordering, delivery, plant care, and more at Pioneer Seedlings." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1.2s ease-out both;
+    }
+
+    /* Slide left for content reveal */
+    @keyframes slideLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-left {
+      animation: slideLeft 0.8s ease forwards;
+    }
+
+    /* Card hover effect for FAQ items */
+    .faq-item-effect {
+      transition: all 0.2s ease-in-out;
+    }
+    .faq-item-effect:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 767px) {
+      .faq-hero h2 {
+        font-size: 2.5rem !important;
+      }
+      .faq-hero p {
+        font-size: 1rem !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation - Replicated for consistency -->
+  <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-green-700 hover:text-green-800 transition duration-300 ease-in-out transform hover:scale-105">
+        🌱 Pioneer Seedlings
+      </a>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-green-700 transition">Home</a>
+        <a href="shop.html" class="hover:text-green-700 transition">Shop</a>
+        <a href="cart.html" class="hover:text-green-700 transition">
+          Cart (<span id="cart-count">0</span>)
+        </a>
+        <a href="contact.html" class="hover:text-green-700 transition">Contact</a>
+        <a href="about.html" class="hover:text-green-700 transition">About Us</a>
+        <a href="delivery-info.html" class="hover:text-green-700 transition">Delivery Info</a>
+        <a href="faq.html" class="text-green-700 font-semibold underline hover:text-green-800 transition">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+     <!-- Hero Section for About Page -->
+  <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-20 text-center shadow-lg">
+    <div class="container mx-auto px-6 animate-fade-in">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Frequently Asked Questions</h1>
+      <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+        Find quick answers to help you on your gardening journey.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Categories & Questions Section -->
+  <section class="py-16 bg-white shadow-inner">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-4xl font-bold text-gray-900 text-center mb-12 animate-slide-left">Need a Quick Answer?</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- General Questions -->
+        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+          <h4 class="text-3xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-3">General Questions</h4>
+          <div class="space-y-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">What types of seedlings do you offer?</h5>
+              <p class="text-gray-700">
+                Pioneer Seedlings offers a wide variety of premium fruit, vegetable, and herb seedlings. Our selection includes popular choices like heirloom tomatoes, sweet peppers, fragrant basil, and much more. Please visit our <a href="shop.html" class="text-green-600 hover:underline">Shop page</a> for the full list.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">Are your seedlings organic?</h5>
+              <p class="text-gray-700">
+                Many of our seedlings are grown using organic methods. We are committed to sustainable practices and transparency. Specific details about each seedling's cultivation method can be found on its product page.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">Do you provide gardening advice?</h5>
+              <p class="text-gray-700">
+                Yes! We are passionate about helping you succeed. Our team offers expert gardening advice. You can find helpful tips on our social media, or feel free to <a href="contact.html" class="text-green-600 hover:underline">contact us directly</a> with your questions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ordering & Payment Questions -->
+        <div class="animate-fade-in" style="animation-delay: 0.4s;">
+          <h4 class="text-3xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-3">Ordering & Payment</h4>
+          <div class="space-y-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">How do I place an order?</h5>
+              <p class="text-gray-700">
+                Ordering is easy! Simply navigate to our <a href="shop.html" class="text-green-600 hover:underline">Shop page</a>, select the seedlings you wish to purchase, add them to your cart, and follow the steps through our secure checkout process.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">What payment methods do you accept?</h5>
+              <p class="text-gray-700">
+                We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, and other secure online payment options. All transactions are encrypted for your security.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">Can I modify or cancel my order?</h5>
+              <p class="text-gray-700">
+                Order modifications or cancellations are possible within a short window after placement. Please <a href="contact.html" class="text-green-600 hover:underline">contact us immediately</a> if you need to make changes, and we'll do our best to assist you before your order is processed for shipping.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shipping & Delivery Questions -->
+        <div class="animate-fade-in" style="animation-delay: 0.6s;">
+          <h4 class="text-3xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-3">Shipping & Delivery</h4>
+          <div class="space-y-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">How are seedlings packaged for delivery?</h5>
+              <p class="text-gray-700">
+                We use custom-designed, eco-friendly packaging that securely holds each seedling, minimizing movement and protecting them from stress during transit. Our goal is for your plants to arrive as healthy as they leave our nursery.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">What are your shipping times and costs?</h5>
+              <p class="text-gray-700">
+                Shipping times and costs depend on your location and the selected shipping method (Standard or Express). You can find detailed information on our <a href="delivery-info.html" class="text-green-600 hover:underline">Delivery Information page</a>.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">What if my seedlings arrive damaged?</h5>
+              <p class="text-gray-700">
+                While we take utmost care, if your seedlings arrive with significant damage, please <a href="contact.html" class="text-green-600 hover:underline">contact our customer support</a> within 24 hours of delivery. Include photos of the damage, and we'll work to resolve the issue promptly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plant Care Questions -->
+        <div class="animate-fade-in" style="animation-delay: 0.8s;">
+          <h4 class="text-3xl font-bold text-green-700 mb-6 border-b-2 border-green-200 pb-3">Plant Care & Support</h4>
+          <div class="space-y-6">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">How should I care for my seedlings upon arrival?</h5>
+              <p class="text-gray-700">
+                Upon arrival, unpack your seedlings immediately. Water them if the soil feels dry, and place them in a shaded, sheltered spot for a day or two to acclimate before planting. More detailed instructions are available on our <a href="delivery-info.html#receiving-tips" class="text-green-600 hover:underline">Delivery Information page</a>.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">When is the best time to plant my seedlings?</h5>
+              <p class="text-gray-700">
+                The ideal planting time depends on the specific plant variety and your local climate. Generally, it's best to plant after the last frost date for warm-season vegetables and herbs. Each product page will have specific guidance.
+              </p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md faq-item-effect">
+              <h5 class="font-semibold text-xl text-gray-900 mb-2">Do you offer a guarantee on your seedlings?</h5>
+              <p class="text-gray-700">
+                We guarantee that our seedlings leave our nursery in excellent health. If you encounter issues beyond normal transplant shock, please refer to our <a href="contact.html" class="text-green-600 hover:underline">Contact Us page</a> to discuss your concerns. Your gardening success is important to us!
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Still Have Questions Call to Action -->
+  <section class="bg-gray-50 text-gray-800 py-16 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-6">Still Have Questions?</h3>
+      <p class="mb-10 text-xl leading-relaxed">
+        If you can't find what you're looking for, our friendly team is here to help!
+      </p>
+      <a href="contact.html" class="bg-green-600 hover:bg-green-700 text-white font-extrabold px-10 py-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+        Contact Our Support Team
+      </a>
+    </div>
+  </section>
+    
+    
+  <!-- Final Call to Action - Replicated for consistency -->
+  <section class="bg-green-800 text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-6">Ready to Grow Your Garden?</h3>
+      <p class="mb-10 text-xl leading-relaxed">
+        Browse our selection of premium seedlings and let us bring them directly to your home.
+      </p>
+      <a href="shop.html" class="bg-white text-green-800 font-extrabold px-12 py-5 rounded-full shadow-2xl hover:bg-gray-200 transition duration-300 ease-in-out transform hover:scale-110">
+        Shop Our Seedlings Today!
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer - Replicated for consistency -->
+  <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2025 Pioneer Seedlings. All rights reserved.</p>
+      <p class="mt-2">
+        <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a> |
+        <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Function to update cart count from localStorage
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    // Call updateCartCount when the DOM is fully loaded
+    window.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
+
+</body>
+</html>
