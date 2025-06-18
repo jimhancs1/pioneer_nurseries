@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pioneer Seedlings - Gardening Blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Explore gardening tips, plant care guides, and seasonal advice from Pioneer Seedlings." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1.2s ease-out both;
+    }
+
+    /* Slide right for content reveal */
+    @keyframes slideRight {
+      0% {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .animate-slide-right {
+      animation: slideRight 0.8s ease forwards;
+    }
+
+    /* Card hover effect for blog posts */
+    .blog-card-effect {
+      transition: all 0.2s ease-in-out;
+    }
+    .blog-card-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 767px) {
+      .blog-hero h2 {
+        font-size: 2.5rem !important;
+      }
+      .blog-hero p {
+        font-size: 1rem !important;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr !important; /* Stack blog posts on small screens */
+      }
+    }
+
+    /* Styles for active filter buttons */
+    .filter-button.active {
+      background-color: #16A34A; /* green-600 */
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navigation - Replicated for consistency -->
+  <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-green-700 hover:text-green-800 transition duration-300 ease-in-out transform hover:scale-105">
+        🌱 Pioneer Seedlings
+      </a>
+      <nav class="space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-green-700 transition">Home</a>
+        <a href="shop.html" class="hover:text-green-700 transition">Shop</a>
+        <a href="cart.html" class="hover:text-green-700 transition">
+          Cart (<span id="cart-count">0</span>)
+        </a>
+        <a href="contact.html" class="hover:text-green-700 transition">Contact</a>
+        <a href="about.html" class="hover:text-green-700 transition">About Us</a>
+        <a href="delivery-info.html" class="hover:text-green-700 transition">Delivery Info</a>
+        <a href="faq.html" class="hover:text-green-700 transition">FAQ</a>
+        <a href="blog.html" class="text-green-700 font-semibold underline hover:text-green-800 transition">Blog</a>
+      </nav>
+    </div>
+  </header>
+    
+       <!-- Hero Section for About Page -->
+  <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-20 text-center shadow-lg">
+    <div class="container mx-auto px-6 animate-fade-in">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Cultivating Knowledge: The Pioneer Seedlings Blog</h1>
+      <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+        Your go-to source for expert gardening tips, plant care guides, and seasonal inspiration.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Posts Section -->
+  <section class="py-16 bg-white shadow-inner">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-4xl font-bold text-gray-900 text-center mb-12 animate-slide-right">Latest Articles & Guides</h3>
+
+      <!-- Blog Categories (Filter) -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in" id="blog-categories" style="animation-delay: 0.2s;">
+        <button class="filter-button bg-green-600 text-white px-6 py-2 rounded-full font-semibold hover:bg-green-700 transition duration-300 shadow-md active" data-category="all">All Articles</button>
+        <button class="filter-button bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition duration-300" data-category="plant-care">Plant Care</button>
+        <button class="filter-button bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition duration-300" data-category="seasonal-tips">Seasonal Tips</button>
+        <button class="filter-button bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition duration-300" data-category="harvesting">Harvesting</button>
+        <button class="filter-button bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition duration-300" data-category="diy-gardening">DIY Gardening</button>
+        <button class="filter-button bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-gray-300 transition duration-300" data-category="sustainability">Sustainability</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 blog-grid" id="blog-posts-container">
+
+        <!-- Blog Post 1 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="plant-care">
+          <img src="https://placehold.co/600x400/E8F5E9/2E7D32?text=Starting+Seeds" alt="Starting Seeds Indoors" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">March 10, 2025 | Plant Care</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Beginner's Guide to Starting Seeds Indoors</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Learn the essential steps for successfully germinating seeds indoors, giving your garden a head start before spring.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="plant-care">
+          <img src="https://placehold.co/600x400/D4EDDA/155724?text=Tomato+Troubleshooting" alt="Tomato Plant Care" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">February 28, 2025 | Plant Care</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Troubleshooting Common Tomato Plant Problems</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Identify and solve common issues like leaf curl, blossom end rot, and pests to ensure a healthy tomato harvest.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="seasonal-tips">
+          <img src="https://placehold.co/600x400/E6F3E6/3C8F3A?text=Companion+Planting" alt="Companion Planting" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">February 15, 2025 | Seasonal Tips</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Boost Your Garden: The Power of Companion Planting</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Discover which plants thrive together and how to use companion planting to deter pests and enhance growth naturally.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 4 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="diy-gardening">
+          <img src="https://placehold.co/600x400/F0F8FF/4682B4?text=Herbs+Indoors" alt="Growing Herbs Indoors" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">January 20, 2025 | DIY Gardening</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Your Year-Round Herb Garden: Growing Indoors</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Enjoy fresh herbs all year long! This guide covers everything you need to know about cultivating herbs in your home.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 5 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="sustainability">
+          <img src="https://placehold.co/600x400/FFF8DC/B8860B?text=Compost+Tips" alt="Composting Basics" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">January 5, 2025 | Sustainability</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Composting 101: Enriching Your Soil Naturally</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Turn kitchen scraps into garden gold. A simple guide to starting your own compost bin for healthier soil.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 6 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="seasonal-tips">
+          <img src="https://placehold.co/600x400/F0FFF0/3CB371?text=Attracting+Pollinators" alt="Attracting Pollinators" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">December 18, 2024 | Seasonal Tips</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Invite Nature: Attracting Pollinators to Your Garden</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Learn how to create a welcoming habitat for bees, butterflies, and other essential pollinators to boost your yields.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 7 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="harvesting">
+          <img src="https://placehold.co/600x400/E8F0FF/3A5FCD?text=Harvesting+Herbs" alt="Harvesting Herbs" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">December 1, 2024 | Harvesting</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">When and How to Harvest Your Herbs for Best Flavor</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Maximize the flavor and yield of your homegrown herbs with these essential harvesting tips and tricks.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 8 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="plant-care">
+          <img src="https://placehold.co/600x400/FFFAE0/FFA500?text=Winter+Care" alt="Winter Plant Care" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">November 15, 2024 | Plant Care</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Protecting Your Perennials Through the Winter Months</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Ensure your favorite plants return year after year with proper winterization techniques and care.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 9 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="diy-gardening">
+          <img src="https://placehold.co/600x400/E0FFE0/66CDAA?text=Raised+Beds" alt="Building Raised Beds" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">October 30, 2024 | DIY Gardening</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">DIY Raised Garden Beds: A Step-by-Step Guide</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Transform your gardening space with easy-to-build raised beds, perfect for maximizing yield and managing soil.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 10 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="seasonal-tips">
+          <img src="https://placehold.co/600x400/F0F8FF/4169E1?text=Fall+Planting" alt="Fall Planting" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">October 10, 2024 | Seasonal Tips</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Top Vegetables to Plant for a Thriving Fall Garden</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Don't let the season end! Discover cool-season crops that flourish in autumn and extend your harvest.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 11 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="plant-care">
+          <img src="https://placehold.co/600x400/E6F6FF/87CEEB?text=Watering+Tips" alt="Efficient Watering" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">September 25, 2024 | Plant Care</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Smart Watering Techniques for a Drought-Resistant Garden</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Conserve water and keep your plants hydrated with these efficient watering strategies.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Blog Post 12 -->
+        <div class="blog-post bg-gray-100 rounded-xl shadow-lg overflow-hidden blog-card-effect animate-fade-in" data-category="harvesting">
+          <img src="https://placehold.co/600x400/FFEBCD/DEB887?text=Seed+Saving" alt="Seed Saving" class="w-full h-56 object-cover">
+          <div class="p-6">
+            <span class="text-sm text-gray-500">September 10, 2024 | Harvesting</span>
+            <h4 class="font-bold text-xl text-gray-900 mt-2 mb-3">Beginner's Guide to Seed Saving from Your Garden</h4>
+            <p class="text-gray-700 text-base leading-relaxed mb-4">
+              Learn how to collect and store seeds from your favorite plants for future planting seasons.
+            </p>
+            <a href="#" class="text-green-600 hover:text-green-800 font-semibold flex items-center">
+              Read More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+      
+      <!-- Pagination -->
+      <div class="flex justify-center mt-12 space-x-2 animate-fade-in" id="blog-pagination">
+        <button class="pagination-button bg-green-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-green-700 transition duration-300 shadow-md active" data-page="1">1</button>
+        <button class="pagination-button bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition duration-300" data-page="2">2</button>
+        <button class="pagination-button bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition duration-300" data-page="3">3</button>
+        <button class="pagination-button bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition duration-300" data-page="4">4</button>
+        <button class="pagination-button bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition duration-300" data-page="5">5</button>
+        <button class="pagination-button bg-gray-200 text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-300 transition duration-300" data-page="next">Next &raquo;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final Call to Action - Replicated for consistency -->
+  <section class="bg-green-800 text-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h3 class="text-4xl font-bold mb-6">Ready to Grow Your Garden?</h3>
+      <p class="mb-10 text-xl leading-relaxed">
+        Browse our selection of premium seedlings and let us bring them directly to your home.
+      </p>
+      <a href="shop.html" class="bg-white text-green-800 font-extrabold px-12 py-5 rounded-full shadow-2xl hover:bg-gray-200 transition duration-300 ease-in-out transform hover:scale-110">
+        Shop Our Seedlings Today!
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer - Replicated for consistency -->
+  <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2025 Pioneer Seedlings. All rights reserved.</p>
+      <p class="mt-2">
+        <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a> |
+        <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Function to update cart count from localStorage
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    // Call updateCartCount when the DOM is fully loaded
+    window.addEventListener('DOMContentLoaded', updateCartCount);
+
+    // Blog Category Filtering Logic
+    const filterButtons = document.querySelectorAll('#blog-categories .filter-button');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    const postsPerPage = 6; // Number of posts to display per page
+    let currentPage = 1;
+
+    // Function to display posts for a given page
+    function displayPostsForPage(page, category = 'all') {
+      blogPosts.forEach(post => {
+        const postCategory = post.dataset.category;
+        const matchesCategory = (category === 'all' || postCategory === category);
+        post.style.display = matchesCategory ? 'block' : 'none'; // Initially hide/show based on category
+      });
+
+      const filteredPosts = Array.from(blogPosts).filter(post => post.style.display !== 'none');
+      const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+      filteredPosts.forEach((post, index) => {
+        const isVisible = (index >= (page - 1) * postsPerPage && index < page * postsPerPage);
+        post.style.display = isVisible ? 'block' : 'none';
+      });
+
+      updatePaginationButtons(totalPages, page);
+    }
+
+    // Function to update pagination button styles
+    function updatePaginationButtons(totalPages, activePage) {
+      const paginationContainer = document.getElementById('blog-pagination');
+      paginationContainer.innerHTML = ''; // Clear existing buttons
+
+      for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.classList.add('pagination-button', 'px-4', 'py-2', 'rounded-md', 'font-semibold', 'hover:bg-gray-300', 'transition', 'duration-300', 'shadow-md');
+        button.textContent = i;
+        button.dataset.page = i;
+        if (i === activePage) {
+          button.classList.add('bg-green-600', 'text-white');
+          button.classList.remove('bg-gray-200', 'text-gray-700');
+        } else {
+          button.classList.add('bg-gray-200', 'text-gray-700');
+          button.classList.remove('bg-green-600', 'text-white');
+        }
+        paginationContainer.appendChild(button);
+      }
+
+      // Add Next button if not on the last page
+      if (activePage < totalPages) {
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('pagination-button', 'bg-gray-200', 'text-gray-700', 'px-4', 'py-2', 'rounded-md', 'font-semibold', 'hover:bg-gray-300', 'transition', 'duration-300', 'shadow-md');
+        nextButton.textContent = 'Next »';
+        nextButton.dataset.page = 'next';
+        paginationContainer.appendChild(nextButton);
+      }
+    }
+
+    // Event listeners for filter buttons
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-green-600', 'text-white', 'bg-gray-200', 'text-gray-700'));
+        button.classList.add('active', 'bg-green-600', 'text-white');
+        button.classList.remove('bg-gray-200', 'text-gray-700'); // Ensure other color is removed
+
+        const category = button.dataset.category;
+        currentPage = 1; // Reset to first page on category change
+        displayPostsForPage(currentPage, category);
+      });
+    });
+
+    // Event listener for pagination buttons (delegated)
+    document.getElementById('blog-pagination').addEventListener('click', (event) => {
+      const target = event.target;
+      if (target.classList.contains('pagination-button')) {
+        let newPage = parseInt(target.dataset.page);
+        if (target.dataset.page === 'next') {
+          newPage = currentPage + 1;
+        }
+
+        const activeCategoryButton = document.querySelector('#blog-categories .filter-button.active');
+        const activeCategory = activeCategoryButton ? activeCategoryButton.dataset.category : 'all';
+
+        const allPostsInCurrentCategory = Array.from(blogPosts).filter(post => {
+          return activeCategory === 'all' || post.dataset.category === activeCategory;
+        });
+        const totalPagesForCategory = Math.ceil(allPostsInCurrentCategory.length / postsPerPage);
+
+        if (newPage >= 1 && newPage <= totalPagesForCategory) {
+          currentPage = newPage;
+          displayPostsForPage(currentPage, activeCategory);
+        }
+      }
+    });
+
+    // Initial display of posts on page load
+    displayPostsForPage(currentPage, 'all');
+  </script>
+
+</body>
+</html>
