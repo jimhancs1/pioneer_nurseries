@@ -5,15 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pioneer Seedlings - About Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes fade-in {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade-in {
-      animation: fade-in 0.8s ease-out both;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
 
@@ -31,165 +23,224 @@
         </a>
         <a href="contact.html" class="hover:text-green-600 transition">Contact</a>
         <a href="about.html" class="text-green-700 font-semibold underline">About Us</a>
+        <a href="delivery-info.html" class="hover:text-green-700 transition">Delivery Info</a>
+        <a href="faq.html" class="hover:text-green-700 transition">FAQ</a>
+        <a href="blog.html" class="hover:text-green-700 transition">Blog</a>
       </div>
     </div>
   </nav>
-    
+
+  <!-- Hero Section for About Page -->
+  <section class="bg-gradient-to-r from-green-600 to-green-700 text-white py-20 text-center shadow-lg">
+    <div class="container mx-auto px-6 animate-fade-in">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Growing Green, Growing Together</h1>
+      <p class="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+        Discover the passion and purpose behind every seedling at Pioneer Seedlings.
+      </p>
+    </div>
+  </section>
+
   <!-- About Section -->
-  <section class="py-16">
-    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10 px-6">
+  <section class="py-16 bg-white">
+    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12 px-6">
       <!-- Text Content -->
       <div class="md:w-1/2 text-center md:text-left animate-fade-in">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">About Us</h1>
-        <p class="text-lg text-gray-700 mb-4">
-          Pioneer Seedlings is committed to helping you grow your own food by providing high-quality fruit and vegetable seedlings. We aim to make sustainable gardening accessible and enjoyable.
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">Nurturing Healthy Beginnings for Thriving Gardens</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Pioneer Seedlings is passionately committed to empowering individuals and communities to grow their own food. We do this by providing high-quality fruit and vegetable seedlings, making sustainable gardening both accessible and profoundly rewarding.
         </p>
         <p class="text-lg text-gray-700">
-          Since our founding in 2021, we’ve empowered thousands of farmers, home growers, and urban gardeners to create thriving green spaces and bountiful harvests.
+          Since our inception in 2021, we've had the privilege of supporting thousands of aspiring farmers, dedicated home growers, and innovative urban gardeners. Our mission is to equip them with the healthiest starts, enabling them to cultivate vibrant green spaces and achieve bountiful harvests.
         </p>
       </div>
 
       <!-- Image -->
-      <div class="md:w-1/2 animate-fade-in">
-        <img src="thumbnails/nursery.png" alt="Our Farm Nursery" class="w-full h-full object-cover rounded-lg shadow-md">
+      <div class="md:w-1/2 animate-fade-in" style="animation-delay: 0.2s;">
+        <img src="thumbnails/nursery.png" alt="Our Farm Nursery" class="w-full h-80 object-cover rounded-xl shadow-xl transform hover:scale-105 transition-transform duration-300">
       </div>
     </div>
   </section>
-
-<!-- Location Map -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-4 max-w-4xl text-center">
-    <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Nursery Location</h2>
-    <div class="w-full h-96 rounded-lg overflow-hidden shadow-md">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.123456789!2d37.45476!3d-0.52889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1685371959884!5m2!1sen!2ske"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </div>
-</section>
-
-
-  <!-- Vision & Mission -->
-  <section class="bg-gray py-16 px-6">
-    <div class="container mx-auto text-center max-w-4xl animate-fade-in">
-      <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Vision & Mission</h2>
-      <p class="text-lg text-gray-700 mb-4">
-        <strong class="text-green-700">Vision:</strong> To be the leading provider of healthy, affordable seedlings across Africa.
-      </p>
-      <p class="text-lg text-gray-700">
-        <strong class="text-green-700">Mission:</strong> To empower communities through agriculture by delivering quality seedlings and promoting sustainable farming practices.
-      </p>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
+    
+    
+<!-- Our Facilities Section (New) -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <h3 class="text-3xl font-bold mb-10 text-gray-800">Why Choose Pioneer Seedlings?</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-green-50 p-6 rounded-lg shadow-md animate-fade-in" style="animation-delay: 0.2s;">
-          <h4 class="text-xl font-semibold mb-2 text-green-800">🌞 Optimal Climate Control</h4>
-          <p class="text-gray-700">We grow seedlings in controlled environments for faster and healthier growth.</p>
+      <h3 class="text-4xl font-bold text-gray-900 mb-12 animate-fade-in">Where We Grow: Our State-of-the-Art Facilities</h3>
+      <p class="text-lg text-gray-700 mb-10 max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
+        Our nurseries are designed with optimal growth in mind. Featuring controlled environments, advanced irrigation systems, and ample natural light, we create the perfect conditions for every seedling to flourish before it reaches your home.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="rounded-xl shadow-lg overflow-hidden animate-fade-in" style="animation-delay: 0.4s;">
+          <img src="thumbnails/greenhouse.png" alt="Greenhouse Interior"  class="w-full h-64 object-cover">
+          <div class="p-6 bg-green-50">
+            <h4 class="text-xl font-semibold text-green-800">Controlled Environment Greenhouses</h4>
+            <p class="text-gray-700 text-sm mt-2">Precision climate control ensures consistent growth and health.</p>
+          </div>
         </div>
-        <div class="bg-green-50 p-6 rounded-lg shadow-md animate-fade-in" style="animation-delay: 0.4s;">
-          <h4 class="text-xl font-semibold mb-2 text-green-800">📦 Flexible Order Options</h4>
-          <p class="text-gray-700">Order the exact quantity you need—whether for a small backyard or a commercial farm.</p>
-        </div>
-        <div class="bg-green-50 p-6 rounded-lg shadow-md animate-fade-in" style="animation-delay: 0.6s;">
-          <h4 class="text-xl font-semibold mb-2 text-green-800">🤝 Personalized Support</h4>
-          <p class="text-gray-700">Get expert advice and customer support tailored to your farming needs.</p>
+        <div class="rounded-xl shadow-lg overflow-hidden animate-fade-in" style="animation-delay: 0.6s;">
+          <img src="thumbnails/irrigation.png" alt="Automated Irrigation System"  class="w-full h-64 object-cover">
+          <div class="p-6 bg-green-50">
+            <h4 class="text-xl font-semibold text-green-800">Advanced Irrigation Systems</h4>
+            <p class="text-gray-700 text-sm mt-2">Delivering the perfect amount of water and nutrients to each plant.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- Relevant Training (Redesigned) -->
-<section class="py-20 bg-gradient-to-b from-white via-green-50 to-white">
-  <div class="container mx-auto px-6 max-w-5xl">
-    <div class="text-center mb-14">
-      <h2 class="text-5xl font-extrabold text-green-700 mb-4">Grow with Knowledge</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-        More than seedlings—we cultivate know-how. Our experts are rigorously trained in sustainable agriculture to guide your success.
-      </p>
-    </div>
-
-    <!-- Timeline-style training highlights -->
-    <div class="relative">
-      <div class="absolute left-5 top-0 bottom-0 w-1 bg-green-200"></div>
-
-      <div class="space-y-12 ml-12">
-        <!-- Item 1 -->
-        <div class="relative flex items-start gap-6">
-          <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
-            📘
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-green-800">Certified Programs</h3>
-            <p class="text-gray-600 mt-2">Training in seedling production, pest management, and sustainable growing methods.</p>
-          </div>
+  <!-- Vision & Mission -->
+  <section class="bg-green-50 py-16 px-6">
+    <div class="container mx-auto text-center max-w-5xl animate-fade-in" style="animation-delay: 0.4s;">
+      <h2 class="text-4xl font-bold mb-10 text-green-800">Our Guiding Principles</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-500">
+          <h3 class="text-2xl font-bold mb-3 text-green-700">🌱 Our Vision</h3>
+          <p class="text-lg text-gray-700">To be the undisputed leader in providing healthy, affordable seedlings, fostering food security and agricultural prosperity across Africa.</p>
         </div>
-
-        <!-- Item 2 -->
-        <div class="relative flex items-start gap-6">
-          <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
-            🌿
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-green-800">Climate-Smart Techniques</h3>
-            <p class="text-gray-600 mt-2">Workshops on organic practices and adapting agriculture to environmental shifts.</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="relative flex items-start gap-6">
-          <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
-            🤝
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-green-800">Expert Collaborations</h3>
-            <p class="text-gray-600 mt-2">Partnerships with KALRO, top agronomists, and cutting-edge agri-tech experts in Kenya.</p>
-          </div>
+        <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-green-500">
+          <h3 class="text-2xl font-bold mb-3 text-green-700">🎯 Our Mission</h3>
+          <p class="text-lg text-gray-700">To empower communities through accessible agriculture by consistently delivering superior quality seedlings and championing sustainable, eco-friendly farming practices.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- CTA -->
-    <div class="mt-16 text-center">
-      <a href="training.html" class="bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg transition-all duration-300">
-        Enroll in Training
-      </a>
+  <!-- Why Choose Us - Enhanced with Icons -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h3 class="text-4xl font-bold mb-12 text-gray-800">Why Growers Choose Pioneer Seedlings</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-green-100 p-8 rounded-xl shadow-lg flex flex-col items-center animate-fade-in" style="animation-delay: 0.6s;">
+          <div class="text-5xl mb-4">☀️</div>
+          <h4 class="text-2xl font-semibold mb-3 text-green-800">Optimal Growing Conditions</h4>
+          <p class="text-gray-700">Our seedlings thrive in precisely controlled environments, ensuring vigorous, disease-resistant growth from day one.</p>
+        </div>
+        <div class="bg-green-100 p-8 rounded-xl shadow-lg flex flex-col items-center animate-fade-in" style="animation-delay: 0.8s;">
+          <div class="text-5xl mb-4">📦</div>
+          <h4 class="text-2xl font-semibold mb-3 text-green-800">Flexible Ordering</h4>
+          <p class="text-gray-700">Whether you're starting a small backyard patch or a large commercial farm, order the exact quantity you need with ease.</p>
+        </div>
+        <div class="bg-green-100 p-8 rounded-xl shadow-lg flex flex-col items-center animate-fade-in" style="animation-delay: 1.0s;">
+          <div class="text-5xl mb-4">🤝</div>
+          <h4 class="text-2xl font-semibold mb-3 text-green-800">Dedicated Expert Support</h4>
+          <p class="text-gray-700">Receive personalized, expert advice and unparalleled customer support tailored to your unique farming and gardening needs.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Relevant Training (Redesigned) - Kept as is, as it was already good -->
+  <section class="py-20 bg-gradient-to-b from-white via-green-50 to-white">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-14">
+        <h2 class="text-5xl font-extrabold text-green-700 mb-4">Grow with Knowledge</h2>
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          More than seedlings—we cultivate know-how. Our experts are rigorously trained in sustainable agriculture to guide your success.
+        </p>
+      </div>
+
+      <!-- Timeline-style training highlights -->
+      <div class="relative">
+        <div class="absolute left-5 top-0 bottom-0 w-1 bg-green-200"></div>
+
+        <div class="space-y-12 ml-12">
+          <!-- Item 1 -->
+          <div class="relative flex items-start gap-6">
+            <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
+              📘
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-green-800">Certified Programs</h3>
+              <p class="text-gray-600 mt-2">Training in seedling production, pest management, and sustainable growing methods.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="relative flex items-start gap-6">
+            <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
+              🌿
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-green-800">Climate-Smart Techniques</h3>
+              <p class="text-gray-600 mt-2">Workshops on organic practices and adapting agriculture to environmental shifts.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="relative flex items-start gap-6">
+            <div class="flex-shrink-0 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shadow-md">
+              🤝
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-green-800">Expert Collaborations</h3>
+              <p class="text-gray-600 mt-2">Partnerships with KALRO, top agronomists, and cutting-edge agri-tech experts in Kenya.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-16 text-center">
+        <a href="training.html" class="bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-10 rounded-full text-lg shadow-lg transition-all duration-300">
+          Enroll in Training
+        </a>
+      </div>
+    </div>
+  </section>
     
+     <!-- Section for Delivery Info & Blog Links -->
+  <section class="py-16 bg-gray-100">
+    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 text-center">
+      <!-- Delivery Information Snippet -->
+      <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect animate-fade-in" style="animation-delay: 0.2s;">
+        <h4 class="text-2xl font-bold text-gray-900 mb-4">Seamless Delivery, Fresh to Your Door</h4>
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+          We ensure your seedlings arrive vibrant and ready for planting, thanks to our careful packaging and reliable shipping. Learn more about our process, delivery areas, and options.
+        </p>
+        <a href="delivery-info.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition duration-300 shadow-md">
+          View Delivery Information
+        </a>
+      </div>
+
+      <!-- Blog/Resources Snippet -->
+      <div class="bg-white p-8 rounded-xl shadow-lg card-hover-effect animate-fade-in" style="animation-delay: 0.4s;">
+        <h4 class="text-2xl font-bold text-gray-900 mb-4">Expert Gardening Resources & Tips</h4>
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+          Dive into our blog for a wealth of gardening knowledge. Find seasonal tips, plant care guides, and inspiration to help your garden thrive.
+        </p>
+        <a href="blog.html" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition duration-300 shadow-md">
+          Explore Our Blog
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Meet the Team -->
-  <section class="py-16 bg-gray">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10 text-gray-800">Meet the Team</h2>
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold mb-12 text-gray-800">Meet Our Dedicated Team</h2>
       <div class="grid md:grid-cols-3 gap-10">
-        <div class="animate-fade-in">
-          <img src="thumbnails/team2.jpg" alt="Lead Agronomist" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
-          <h3 class="text-xl font-semibold">Pauline Gacoki</h3>
-          <p class="text-gray-600">Lead Agronomist</p>
+        <div class="animate-fade-in transform hover:scale-105 transition-transform duration-300">
+          <img src="thumbnails/team2.jpg" alt="Lead Agronomist" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg border-4 border-green-300">
+          <h3 class="text-2xl font-semibold text-green-700">Pauline Gacoki</h3>
+          <p class="text-gray-600 text-lg">Lead Agronomist</p>
         </div>
-        <div class="animate-fade-in">
-          <img src="thumbnails/team1.jpg" alt="Founder" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
-          <h3 class="text-xl font-semibold">Joseph Njeru</h3>
-          <p class="text-gray-600">Founder & CEO</p>
+        <div class="animate-fade-in transform hover:scale-105 transition-transform duration-300" style="animation-delay: 0.2s;">
+          <img src="thumbnails/team1.jpg" alt="Founder" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg border-4 border-green-300">
+          <h3 class="text-2xl font-semibold text-green-700">Joseph Njeru</h3>
+          <p class="text-gray-600 text-lg">Founder & CEO</p>
         </div>
-        <div class="animate-fade-in">
-          <img src="thumbnails/team3.jpg" alt="Logistics Manager" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg">
-          <h3 class="text-xl font-semibold">Jim Njeru</h3>
-          <p class="text-gray-600">Logistics Manager</p>
+        <div class="animate-fade-in transform hover:scale-105 transition-transform duration-300" style="animation-delay: 0.4s;">
+          <img src="thumbnails/team3.jpg" alt="Logistics Manager" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg border-4 border-green-300">
+          <h3 class="text-2xl font-semibold text-green-700">Jim Njeru</h3>
+          <p class="text-gray-600 text-lg">Logistics Manager</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-sm text-gray-500 py-6 border-t">
+  <footer class="text-center text-sm text-gray-500 py-6 border-t bg-white">
     © 2025 Pioneer Seedlings. All rights reserved.
   </footer>
 
